@@ -208,7 +208,7 @@
               <li><a href="/">Home</a></li>
               <li><a href="#">Men <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="/product">Casual</a></li>
+                  <li><a href="#">Casual</a></li>
                   <li><a href="#">Sports</a></li>
                   <li><a href="#">Formal</a></li>
                   <li><a href="#">Standard</a></li>                                                

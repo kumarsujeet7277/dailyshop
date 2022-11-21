@@ -8,6 +8,7 @@ use App\Http\Livewire\WishlistComponent;
 use App\Http\Livewire\ContactusComponent;
 use App\Http\Livewire\AccountDetailComponent;
 use App\Http\Livewire\ProductComponent;
+use App\Http\Livewire\DetailComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::get('/wishlist',WishlistComponent::class);
 Route::get('/contactus',ContactusComponent::class);
 Route::get('/account-detail',AccountDetailComponent::class);
 Route::get('/product',ProductComponent::class);
+Route::get('/product-detail',DetailComponent::class);

@@ -126,7 +126,7 @@
               <!-- logo  -->
               <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index.html">
+                <a href="/">
                   <span class="fa fa-shopping-cart"></span>
                   <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
                 </a>
@@ -208,7 +208,7 @@
               <li><a href="/">Home</a></li>
               <li><a href="#">Men <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="#">Casual</a></li>
+                  <li><a href="/product">Casual</a></li>
                   <li><a href="#">Sports</a></li>
                   <li><a href="#">Formal</a></li>
                   <li><a href="#">Standard</a></li>                                                

@@ -104,7 +104,7 @@
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
                   <li><a href="account.html">My Account</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
+                  <li class="hidden-xs"><a href="/wishlist">Wishlist</a></li>
                   <li class="hidden-xs"><a href="/cart">My Cart</a></li>
                   <li class="hidden-xs"><a href="/checkout">Checkout</a></li>
                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>

@@ -103,12 +103,41 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="/account-detail">My Account</a></li>
-                  <li class="hidden-xs"><a href="/wishlist">Wishlist</a></li>
-                  <li class="hidden-xs"><a href="/cart">My Cart</a></li>
-                  <li class="hidden-xs"><a href="/checkout">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                </ul>
+                    {{-- <li><a href="#">My Account</a></li> --}}
+                    <li class="hidden-xs"><a href="/wishlist">Wishlist</a></li>
+                    <li class="hidden-xs"><a href="/cart">My Cart</a></li>
+                    <li class="hidden-xs"><a href="/checkout">Checkout</a></li>                         
+                
+              
+
+                    @if(Route::has('login'))
+                            @auth
+                                @if(Auth::user()->utype == 'ADM')
+                                      <li><a href="#">My Account ({{ Auth::user()->name }})</a></li>
+                                      <ul class="submenu">
+                                          <li class="menu-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                          <li class="menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
+                                          <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                          </form>
+                                      </ul>
+                                @else
+                                    <li><a href="#">My Account ({{ Auth::user()->name }})</a></li>
+                                      <ul class="submenu">
+                                        <li class="menu-item"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+                                        <li class="menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
+                                          <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                          </form>
+                                    </ul>
+                                @endif
+                            @else                        
+                              <li><a href="{{ route('login') }}" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                              <li><a href="{{ route('register') }}" data-toggle="modal" data-target="#login-modal">Register</a></li>
+                            @endif
+                    @endif
+
+                  </ul>
               </div>
             </div>
           </div>

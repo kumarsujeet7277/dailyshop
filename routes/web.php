@@ -11,6 +11,11 @@ use App\Http\Livewire\ProductComponent;
 use App\Http\Livewire\DetailComponent;
 use App\Http\Livewire\NotFoundComponent;
 
+use App\Http\Livewire\Admin\AdminDashboardComponent;
+
+use App\Http\Livewire\User\UserDashboardComponent;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +40,26 @@ Route::get('/account-detail',AccountDetailComponent::class);
 Route::get('/product',ProductComponent::class);
 Route::get('/product-detail',DetailComponent::class);
 Route::get('/not-found',NotFoundComponent::class);
+
+
+
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+// for User Or Customer
+Route::middleware(['auth:sanctum','verified'])->group(function (){
+Route::post('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
+}); 
+
+// for Admin 
+Route::middleware(['auth:sanctum','verified'])->group(function (){
+Route::post('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
+});

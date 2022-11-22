@@ -114,7 +114,7 @@
                             @auth
                                 @if(Auth::user()->utype == 'ADM')
                                       <li><a href="#">My Account ({{ Auth::user()->name }})</a></li>
-                                      <ul class="submenu">
+                                      <ul class="submenu curency">
                                           <li class="menu-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                           <li class="menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
                                           <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -123,7 +123,7 @@
                                       </ul>
                                 @else
                                     <li><a href="#">My Account ({{ Auth::user()->name }})</a></li>
-                                      <ul class="submenu">
+                                      <ul class="submenu curency">
                                         <li class="menu-item"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
                                         <li class="menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
                                           <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -480,26 +480,31 @@
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">                      
+    <div class="modal-content">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
+        <h4>Login or Register</h4>
+        <x-jet-validation-errors class="mb-4" />
+        <form class="aa-login-form" method="POST" action="{{ route('login') }}">
+            @csrf
             <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
+            <input type="text" id="email" placeholder="Username or email" type="email" name="email" :value="old('email')" required autofocus />
             <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
+            <input type="password" id="password" placeholder="Password" type="password" name="password" required autocomplete="current-password"/>
             <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+            <label for="rememberme" class="rememberme">
+            <input type="checkbox" id="rememberme" name="remember"> Remember me </label>
+            <p class="aa-lost-password"><a href="{{ route('password.request') }}">Lost your password?</a></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
+            Don't have an account?<a href="{{ route('register') }}">Register now!</a>
             </div>
-          </form>
+        </form>
         </div>                        
-      </div><!-- /.modal-content -->
+    </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-  </div>    
+</div>    
+
+
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

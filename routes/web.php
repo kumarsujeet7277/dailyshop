@@ -56,10 +56,10 @@ Route::get('/not-found',NotFoundComponent::class);
 
 // for User Or Customer
 Route::middleware(['auth:sanctum','verified'])->group(function (){
-Route::post('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
+Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
 }); 
 
 // for Admin 
 Route::middleware(['auth:sanctum','verified'])->group(function (){
-Route::post('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
+Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
 });
